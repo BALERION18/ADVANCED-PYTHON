@@ -39,7 +39,7 @@ def findsum(a,b):
 x=5
 y=7
 z=findsum(x,y)
-print(z)"""
+print(z)
 from functools import reduce
 
 
@@ -102,4 +102,13 @@ print(large)
 from functools import reduce
 num_list=[20,12,52,22,72,19,7]
 min=reduce(lambda x,y:x if x<y else y, num_list)
-print(min)
+print(min)"""
+
+
+#student report card generator
+def generate_report(name,marks,subject="python"):
+    average=sum(marks)/len(marks)
+    grade="A" if average>=90 else "B" if average >=75 else "C"
+    print(f"{name}'s {subject} report\nMarks: {marks}\nAverage:{average}\nGrade:{grade}\n")
+
+generate_report("Ayush",[85,92,78])
