@@ -102,7 +102,44 @@ print(large)
 from functools import reduce
 num_list=[20,12,52,22,72,19,7]
 min=reduce(lambda x,y:x if x<y else y, num_list)
-print(min)"""
+print(min)
+
+
+#1
+def factorial(n):
+    result=1
+    for i in range(1,n+1):
+        result *= i
+    return result
+
+print(factorial(5))
+
+#2
+a=[2,3,4,5,6,7,8,9]
+
+prime_no=filter(lambda num: num>1 and all(num%i for i in range (2,int(num**0.5)+1)),a)
+print(list(prime_no))
+
+#3
+li=[1,2,3,6,9,5,4]
+new=list(map(lambda x:x%3==0,li))
+print(new)
+
+#4
+marks=[20,30,40,65]
+sums=sum(map(int,marks))
+print(sums)
+
+#5
+def fibo(n):
+    result=1
+    for i in range(f(n-1)+f(n-2)):
+        result *= i
+    return result
+
+print(fibo(6))
+
+
 
 
 #student report card generator
@@ -111,4 +148,13 @@ def generate_report(name,marks,subject="python"):
     grade="A" if average>=90 else "B" if average >=75 else "C"
     print(f"{name}'s {subject} report\nMarks: {marks}\nAverage:{average}\nGrade:{grade}\n")
 
-generate_report("Ayush",[85,92,78])
+generate_report("Ayush",[85,92,78])"""
+
+#1 factorial of a number
+def factorial(n):
+    result=1
+    for i in range(1,n+1):
+        result *= i
+    return result
+
+factorial(5)
