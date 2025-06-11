@@ -122,7 +122,7 @@ class person:
         return F"The name is {self.name} and age is {self.age}"
     
 p = person("amit", 30)
-print(p)"""
+print(p)
 
 
 #Methods in Python
@@ -180,4 +180,178 @@ result_sub=mathoperation.subnum(10,5)
 
 print(f"addition: {result_add}")
 print(f"subtraction: {result_sub}")
+
+
+# constructor
+# def __init__(self):
+    #body of constructor
+
+# type of constructor
+#1.Default
+#2.Parameterized
+
+#constructor xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+class student:
+     def __init__(self):
+        print("default constructor called")
+     def __init__(self,name,marks,age):
+         self.name=name
+         self.marks=marks
+         self.age=age
+         print("parameterized constructor called")
+     def show_info(self):
+         print("name",self.name)
+         print("marks",self.marks)
+         print("age",self.age)
+
+     def __del__(self):
+         print("destructor called")
+
+s1=student()
+s2= student("rohit",95.5,19)
+s1.show_info()
+s2.show_info()"""
+
+
+
+class student:
+    def __init__(self, name=None, marks=None, age=None):
+        if name is None and marks is None and age is None:
+            print("default constructor called")
+        else:
+            self.name = name
+            self.marks = marks
+            self.age = age
+            print("parameterized constructor called")
+
+    def show_info(self):
+        if hasattr(self, 'name'):
+            print("name:", self.name)
+            print("marks:", self.marks)
+            print("age:", self.age)
+        else:
+            print("No student info to show.")
+
+    def __del__(self):
+        print("destructor called")
+
+
+s1 = student()  # Calls default constructor
+s2 = student("rohit", 95.5, 19)  # Calls parameterized constructor
+
+s1.show_info()
+s2.show_info()
+
+
+
+class addition:
+    first=0
+    second=0
+    answer=0
+    def __init__(self, f, s):
+        self.first=f
+        self.second=s
+    def display(self):
+        print("first number = ",self.first)
+        print("second number = ",self.second)
+        print("addition = ",self.answer)
+    def calculate(self):
+        self.answer = self.first + self.second
+
+obj = addition(1000,2000)
+obj.calculate()
+obj.display()
+
+
+#more than one constructor hai to last wala hi call hota upr wale neglected
+
+#inbuilt functions
+class person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+#create an instance of a person
+person = person("alice",30)
+
+#use getattr to get attributes value
+name = getattr(person, "name")
+print(f"name:{name}") #output is alice
+
+#use setattr to set value of attribute
+setattr(person, "age",31)
+print(f"updated age:{person.age}")  #output : updated age = 31
+
+#use hasattr to check if an attribute exist
+has_name = hasattr(person,"name")
+print(f"has attribute 'name': {has_name}")   # output:has attribute 'name' :true
+
+#use delattr to delete an attribute
+delattr(person,"age")
+
+#check if an attribute 'age' still exist after deleteion
+has_age = hasattr(person,"age")
+print(f"has attribute 'age' after deleteion {has_age}")
+
+
+#pillars of oops
+# encapsulation
+# abstraction
+# polymorphism
+# inheritance
+
+
+#exs
+class employee:
+    def __init__(self, name=None, posn=None, age=None):
+        if name is None and posn is None and age is None:
+            print("default constructor called")
+        else:
+            self.name = name
+            self.posn = posn
+            self.age = age
+            print("parameterized constructor called")
+
+    def show_info(self):
+        if hasattr(self, 'name'):
+            print("name:", self.name)
+            print("posn:", self.posn)
+            print("age:", self.age)
+        else:
+            print("No employee info to show.")
+
+    def __del__(self):
+        print("destructor called")
+
+
+s1 = employee()  # Calls default constructor
+s2 = employee("rohit", "CMO", 24)  # Calls parameterized constructor
+
+s1.show_info()
+s2.show_info()
+
+
+
+#exs
+class Addition:
+    # Class attribute
+    multiplier = 1
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def compute(self):
+        result = self.x  + self.y
+        return result * Addition.multiplier
+    
+
+#  class attribute
+Addition.multiplier = 2
+
+#  instance
+add = Addition(5, 3)
+print(add.compute()) 
+
+
 
